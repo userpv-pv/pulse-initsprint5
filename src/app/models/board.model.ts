@@ -1,3 +1,17 @@
+export interface ChecklistItem {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+export interface Attachment {
+  id: string;
+  name: string;
+  url: string;
+  type: string;
+  size: number;
+}
+
 export interface Task {
   id: string;
   listId: string;
@@ -8,6 +22,9 @@ export interface Task {
   status: 'todo' | 'in-progress' | 'done';
   tags: string[];
   dueDate?: Date;
+  checklist?: ChecklistItem[];
+  attachments?: Attachment[];
+  archived?: boolean;
   createdAt: Date;
   updatedAt: Date;
   position: number;

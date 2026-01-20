@@ -90,6 +90,12 @@ export function generateSampleData(): SampleData {
       const randomList = boardLists[Math.floor(Math.random() * Math.min(6, boardLists.length))];
       const daysAgo = Math.floor(Math.random() * 20) + 1;
 
+      const checklist = Math.random() > 0.6 ? [
+        { id: uuidv4(), title: 'Setup environment', completed: true },
+        { id: uuidv4(), title: 'Initial implementation', completed: Math.random() > 0.5 },
+        { id: uuidv4(), title: 'Testing', completed: false }
+      ] : undefined;
+
       const task: Task = {
         id: uuidv4(),
         listId: randomList.id,
@@ -100,6 +106,9 @@ export function generateSampleData(): SampleData {
         status: statuses[Math.floor(Math.random() * statuses.length)],
         tags: template.tags,
         dueDate: Math.random() > 0.5 ? new Date(Date.now() + Math.random() * 30 * 24 * 60 * 60 * 1000) : undefined,
+        checklist,
+        attachments: [],
+        archived: false,
         createdAt: new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000),
         updatedAt: new Date(Date.now() - Math.floor(daysAgo / 2) * 24 * 60 * 60 * 1000),
         position: i
