@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { BoardListSidebarComponent } from './components/board-list-sidebar/board-list-sidebar.component';
 import { MainCanvasComponent } from './components/main-canvas/main-canvas.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, SidebarComponent, MainCanvasComponent],
+  imports: [HeaderComponent, BoardListSidebarComponent, MainCanvasComponent],
   template: `
     <div class="h-screen flex flex-col overflow-hidden">
       <app-header />
       <div class="flex-1 flex overflow-hidden">
-        <app-sidebar />
-        <app-main-canvas />
+        <app-board-list-sidebar />
+        <div class="flex-1 md:ml-64">
+          <app-main-canvas />
+        </div>
       </div>
     </div>
   `,

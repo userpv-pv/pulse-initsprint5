@@ -66,3 +66,21 @@ body {
 .smooth-transition {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.cdk-overlay-container {
+  z-index: 1000;
+}
+
+.cdk-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: rgb(var(--color-surface));
+  --mdc-dialog-supporting-text-color: rgb(var(--color-text));
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
